@@ -31,8 +31,8 @@ with the constraint that:
 <img src="https://render.githubusercontent.com/render/math?math=\alpha_b(T)"> -> Fraction of Crude b evaporated at T<br>
 <br>
 At temperature T the blend volume evaporated:<br>
-    <img src="https://render.githubusercontent.com/render/math?math=V(T) = \left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]V"><br>
+    <img src="https://render.githubusercontent.com/render/math?math=V(T)=\left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]V"><br>
 This gives the final model:<br>
-    <img src="https://render.githubusercontent.com/render/math?math=\alpha(T) = \left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]"><br>
+    <img src="https://render.githubusercontent.com/render/math?math=\alpha(T)=\left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]"><br>
 <br>
 
