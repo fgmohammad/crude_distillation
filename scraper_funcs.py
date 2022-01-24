@@ -30,8 +30,8 @@ def crude_list_fn(base_url_in):
                 crude_str = _div.find('p', {'class': 'no-padding'}).text.rstrip(')').lstrip('▸ ').strip().split('(')
                 crude_list.append({'name': crude_str[0].strip(),
                                    'abbr': crude_str[-1].strip()})
-            _df = pd.DataFrame(crude_list)
-            return _df
+    _df = pd.DataFrame(crude_list)
+    return _df
 
 
 def crude_info_fn(base_url_in, crude_abbr_in):
