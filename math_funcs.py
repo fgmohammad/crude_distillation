@@ -28,38 +28,3 @@ def fill_nan(df_in, col):
 
             # REPLACE NaN WITH EXTRAPOLATED VALUES
             df_in.loc[i, col] = _m * df_in.loc[i, 'mass [%]'] + _q
-
-
-def lin_interpolation(xx, yy, valx):
-    """
-    Takes the discrete sampled values of a function as (xx, yy)
-    and performa a linear interpolation/extrapolation at valx
-    :param xx: numpy.array -> Sampled values of the independent variable
-    :param yy: numpy.array -> Sampled values of the target variable
-    :param valx: float -> value of the independent variable at which to perform interpolation
-    :return: float -> Result of the interpolation/extrapolation at valx
-    """
-
-    # If valx already in xx => return the corresponding yy
-    if valx in xx:
-        result = yy[xx == valx]
-
-    else:
-        __x1 = __x2 = __y1 = __y2 = 0
-        # If valT is below the minimum or above the maximum values of 'T_recent [C]' => Extrapolate
-        if valx < xx[0]:
-            __x1, __y1 = xx[0], yy[0]
-            __x2, __y2 = xx[1], yy[1]
-        elif valx > xx[-1]:
-            __x1, __y1 = xx[-2], yy[-2]
-            __x2, __y2 = xx[-1], yy[-1]
-        # Otherwise interpolate
-        else:
-            for __i in range(len(xx) - 1):
-                if (valx > xx[__i]) and (valx < xx[__i + 1]):
-                    __x1, __y1 = xx[__i], yy[__i]
-                    __x2, __y2 = xx[__i + 1], yy[__i + 1]
-                    break
-        __m, __q = coeff_fn(__x1, __y1, __x2, __y2)
-        result = __m * valx + __q
-    return result
