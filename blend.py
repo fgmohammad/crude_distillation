@@ -1,5 +1,6 @@
 import pandas as pd
 from math_funcs import *
+from scipy.interpolate import InterpolatedUnivariateSpline
 
 
 class Blend:
@@ -54,24 +55,27 @@ class Blend:
         __Tmax = max(__htsd_a['T_recent [C]'].max(), __htsd_b['T_recent [C]'].max())
         __vT = np.linspace(__Tmin, __Tmax, 1000)
 
-        __list_dict = []
-        for __T in __vT:
-            # Fraction of crude_a evaporated at temperature __T
-            __evap_a = lin_interpolation(xx=__htsd_a['T_recent [C]'].values,
-                                         yy=__htsd_a['mass [%]'].values, valx=__T)
-            # Constraints on the evaporated fraction
-            __evap_a = max(0., min(100., __evap_a))
+        # Define interpolation functions
+        s_a = InterpolatedUnivariateSpline(__htsd_a['T_recent [C]'].values, __htsd_a['mass [%]'].values, k=1)
+        s_b = InterpolatedUnivariateSpline(__htsd_b['T_recent [C]'].values, __htsd_b['mass [%]'].values, k=1)
 
-            # Fraction of crude_b evaporated at temperature __T
-            __evap_b = lin_interpolation(xx=__htsd_b['T_recent [C]'].values,
-                                         yy=__htsd_b['mass [%]'].values, valx=__T)
-            # Constraints on the evaporated fraction
-            __evap_b = max(0., min(100., __evap_b))
+        # Fraction of crude_a evaporated at temperature __T
+        __evap_a = s_a(__vT)
+        # Constraints on the evaporated fraction
+        __evap_a[__evap_a < 0.] = 0.
+        __evap_a[__evap_a > 100.] = 100.
 
-            # Fraction of the blend evaporated at temperature __T
-            __evap = __evap_a * self.frac_a + __evap_b * (1. - self.frac_a)
-            __list_dict.append({'T_recent [C]': __T,
-                                'mass [%]': __evap})
+        # Fraction of crude_a evaporated at temperature __T
+        __evap_b = s_b(__vT)
+        # Constraints on the evaporated fraction
+        __evap_b[__evap_b < 0.] = 0.
+        __evap_b[__evap_b > 100.] = 100.
+
+        # Fraction of the blend evaporated at temperature __T
+        __evap = __evap_a * self.frac_a + __evap_b * (1. - self.frac_a)
+
+        __list_dict = [{'T_recent [C]': __x, 'mass [%]': __y} for __x, __y in zip(__vT, __evap)]
+
         # Store __vt and the corresponding blend evaporated fractions in a Pandas DataFrame
         __df = pd.DataFrame(__list_dict)
 
