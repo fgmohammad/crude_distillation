@@ -12,7 +12,7 @@ The model estimates the distillation profile, i.e. the fraction of oil evaporate
 
 ### Derivation
 
-$V$   -> Volume of the blend<br>
+<img src="https://render.githubusercontent.com/render/math?math=V">   -> Volume of the blend<br>
 
 $f_{V,a}$ -> Crude a fractional volume in the blend<br>
 $f_{V,b}$ -> Crude b fractional volume in the blend<br>
