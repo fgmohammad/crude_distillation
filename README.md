@@ -1,7 +1,14 @@
 # crude_distillation
 Distillation profile model for blend of two crude oils. The data being used are obtained from crudemonitor.ca using web scraping.
 
-# Model
+## Requirements
+bs4
+pandas
+requests
+
+
+
+## Model
 The model estimates the distillation profile, i.e. the fraction of oil evaporated at temperature T, for a blend of two crude oils given their individual distillation profiles.
 
 ### Assumptions
@@ -23,7 +30,9 @@ with the constraint that:
 <img src="https://render.githubusercontent.com/render/math?math=\alpha_a(T)"> -> Fraction of Crude a evaporated at T<br>
 <img src="https://render.githubusercontent.com/render/math?math=\alpha_b(T)"> -> Fraction of Crude b evaporated at T<br>
 <br>
-At T the blend volume evaporated:<br>
+At temperature T the blend volume evaporated:<br>
     <img src="https://render.githubusercontent.com/render/math?math=V(T) = \left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]V"><br>
 This gives the final model:<br>
-    <img src="https://render.githubusercontent.com/render/math?math=\alpha(T) = \left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]">
+    <img src="https://render.githubusercontent.com/render/math?math=\alpha(T) = \left[\alpha_a(T)f_{V,a}+\alpha_b(T)(1-f_{V,a})\right]"><br>
+<br>
+
