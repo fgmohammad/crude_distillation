@@ -26,8 +26,9 @@ The model estimates the distillation profile, i.e. the fraction of oil evaporate
 with the constraint that:
 <p align='center'> <img src="https://render.githubusercontent.com/render/math?math=f_{V,a}%2Bf_{V,b} = 1"> </p>
 <br>
-<img src="https://render.githubusercontent.com/render/math?math=\alpha_a(T)"> -> Fraction of Crude a evaporated at T<br>
-<img src="https://render.githubusercontent.com/render/math?math=\alpha_b(T)"> -> Fraction of Crude b evaporated at T<br>
+
+* <img src="https://render.githubusercontent.com/render/math?math=\alpha_a(T)"> -> Fraction of Crude a evaporated at T<br>
+* <img src="https://render.githubusercontent.com/render/math?math=\alpha_b(T)"> -> Fraction of Crude b evaporated at T<br>
 <br>
 At temperature T the blend volume evaporated:<br>
     <img src="https://render.githubusercontent.com/render/math?math=V(T)=\left[\alpha_a(T)f_{V,a}%2B\alpha_b(T)(1-f_{V,a})\right]V"><br>
