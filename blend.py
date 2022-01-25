@@ -51,7 +51,7 @@ class Blend:
         fill_nan(df_in=__htsd_b, col=__col)
 
         # Set the Temperature values
-        __Tmin = 0.
+        __Tmin = min(__htsd_a['T_recent [C]'].min(), __htsd_b['T_recent [C]'].min())
         __Tmax = max(__htsd_a['T_recent [C]'].max(), __htsd_b['T_recent [C]'].max())
         __vT = np.linspace(__Tmin, __Tmax, 1000)
 
@@ -81,10 +81,9 @@ class Blend:
 
         # 'Invert' the function to get the temperatures at which tabulated fractions of the blend have evaporated
         __xx = np.array([5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99])
-        __list_dict = []
-        for __x in __xx:
-            __y = lin_interpolation(xx=__df['mass [%]'].values,
-                                    yy=__df['T_recent [C]'].values, valx=__x)
-            __list_dict.append({'mass [%]': __x,
-                                'T_recent [C]': __y})
+
+        s_blend = InterpolatedUnivariateSpline(__df['mass [%]'].values, __df['T_recent [C]'].values, k=2)
+        __yy = s_blend(__xx)
+        __list_dict = [{'mass [%]': __x, 'T_recent [C]': __y} for __x, __y in zip(__xx, __yy)]
+
         return pd.DataFrame(__list_dict)
