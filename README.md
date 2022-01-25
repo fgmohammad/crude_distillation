@@ -28,6 +28,7 @@ The model estimates the distillation profile, i.e. the fraction of oil evaporate
 * <img src="https://render.githubusercontent.com/render/math?math=V">   -> Volume of the blend<br>
 * <img src="https://render.githubusercontent.com/render/math?math=f_{V,a}"> -> Crude a fractional volume in the blend<br>
 * <img src="https://render.githubusercontent.com/render/math?math=f_{V,b}"> -> Crude b fractional volume in the blend<br>
+<br>
 with the constraint that:
 <p align='center'> <img src="https://render.githubusercontent.com/render/math?math=f_{V,a}%2Bf_{V,b} = 1"> </p>
 <br>
