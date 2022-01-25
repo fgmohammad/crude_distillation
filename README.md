@@ -2,9 +2,9 @@
 Distillation profile model for blend of two crude oils. The data being used are obtained from crudemonitor.ca using web scraping.
 
 ## Requirements
-bs4
-pandas
-requests
+bs4<br>
+pandas<br>
+requests<br>
 
 ## Usage
 - `$ python 01-get_crudes_list.py` will scrape the list of crudes from crudemonitor.ca and save it to `crudes_list.csv`
