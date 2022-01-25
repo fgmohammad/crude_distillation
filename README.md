@@ -9,6 +9,10 @@ requests
 ## Usage
 - `$ python 01-get_crudes_list.py` will scrape the list of crudes from crudemonitor.ca and save it to `crudes_list.csv`
 - `$ python 02-scrape_htsd_data.py` will read the list of crudes from `crudes_list.csv`, scrape their High-Temperature Simulated Distillation (HTSD) tables from crudemonitor.ca and save them into individual `.csv` files in `./data/`
+- `$ python 03-blend_distillation.py --name_a 'name_crude_a' --name_b 'name_crude_b' --frac_a frac_a --fname 'PathTo_crudes_list.csv'` will read crudes abbreviations from `crudes_list.csv` HTSD data for crude_a and crude_b from `./data/` and generate the distillation profile for the blend of crude_a with fractional volume frac_a and crude_b with fractional volume (1-frac_a)
+- `03-blend_distillation_notebook.ipynb` is the interactive version of `03-blend_distillation.py` and also includes some tests of the model.
+
+__If you clone the repository then you can skip `$ python 01-get_crudes_list.py` and `$ python 02-scrape_htsd_data.py`__
 
 ## Model
 The model estimates the distillation profile, i.e. the fraction of oil evaporated at temperature T, for a blend of two crude oils given their individual distillation profiles.
