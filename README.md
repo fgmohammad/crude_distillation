@@ -41,6 +41,6 @@ At temperature T the blend volume evaporated:<br>
 This gives the fraction of the blend evaporated at temperature T as:<br>
     <p align='center'><img src="https://render.githubusercontent.com/render/math?math=\alpha(T)=\left[\alpha_a(T)f_{V,a}%2B\alpha_b(T)(1-f_{V,a})\right]"><br></p>
 <br>
-with the constraints that:
-    <p align='center'><img src="https://render.githubusercontent.com/render/math?math=0\le f_{V, i}\le1"></p>
+with the constraints that for any T:
+    <p align='center'><img src="https://render.githubusercontent.com/render/math?math=0\le \alpha_{i}(T)\le1"></p>
 
