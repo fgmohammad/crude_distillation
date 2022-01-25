@@ -7,7 +7,7 @@ pandas
 requests
 
 ## Usage
-- python `$ 01-get_crudes_list.py` will scrape the list of crudes from crudemonitor.ca and save it to crudes_list.csv
+- `$ python 01-get_crudes_list.py` will scrape the list of crudes from crudemonitor.ca and save it to `crudes_list.csv`
 
 ## Model
 The model estimates the distillation profile, i.e. the fraction of oil evaporated at temperature T, for a blend of two crude oils given their individual distillation profiles.
