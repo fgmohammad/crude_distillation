@@ -37,7 +37,7 @@ with the constraint that:
 <br>
 At temperature T the blend volume evaporated:<br>
     <p align='center'><img src="https://render.githubusercontent.com/render/math?math=V(T)=\left[\alpha_a(T)f_{V,a}%2B\alpha_b(T)(1-f_{V,a})\right]V"><br></p>
-This gives the final model:<br>
+This gives the fraction of the blend evaporated at temperature T as:<br>
     <p align='center'><img src="https://render.githubusercontent.com/render/math?math=\alpha(T)=\left[\alpha_a(T)f_{V,a}%2B\alpha_b(T)(1-f_{V,a})\right]"><br></p>
 <br>
 
