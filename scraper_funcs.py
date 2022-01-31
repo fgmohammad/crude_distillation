@@ -21,7 +21,7 @@ def crude_list_fn(base_url_in):
     # GET THE DIVISION ELEMENTS (div) FOR DIFFERENT CRUDE TYPES
     divs = soup.find_all('div', {'class': ['el-container']})
 
-    # LOOP OVER EACH CRUDE CATEGORY TO GET A SINGLE CRUDE OIL AT A TIME (HERE LOOP RESTRICTED TO THE FIRST CATEGORY)
+    # LOOP OVER EACH CRUDE CATEGORY TO GET A SINGLE CRUDE OIL AT A TIME
     crude_list = []
     for div in divs[1:]:
         if div:
